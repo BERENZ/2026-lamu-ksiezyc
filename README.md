@@ -9,13 +9,26 @@ Każde pytanie zamieniane jest na wektor 768 liczb (embedding) przez polski mode
 
 ---
 
+## ⚙️ Jednorazowa konfiguracja: włącz GitHub Pages
+
+Żeby linki "Otwórz interaktywny wykres" w sekcjach poniżej otwierały od razu wykres (a nie surowy kod HTML), włącz GitHub Pages dla tego repo:
+
+1. Wejdź w **Settings** repo → zakładka **Pages** (lewa kolumna).
+2. **Source**: `Deploy from a branch`
+3. **Branch**: `main`, folder: `/ (root)` → **Save**
+4. Poczekaj ~1 minutę, aż Pages opublikuje stronę.
+
+Bez tego linki będą zwracać 404. Konfiguracja jednorazowa — po włączeniu działa automatycznie po każdym pushu.
+
+---
+
 ## Notatniki i interaktywne wykresy
 
 ### 1. LAMU 2026 — mapa pytań dzieci
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BERENZ/2026-lamu-ksiezyc/blob/main/2025/lamu_questions_embeddings.ipynb)
 &nbsp;&nbsp;
-[**▶ Otwórz interaktywny wykres**](https://raw.githack.com/BERENZ/2026-lamu-ksiezyc/main/2025/lamu_questions_2026.html)
+[**▶ Otwórz interaktywny wykres**](https://berenz.github.io/2026-lamu-ksiezyc/2025/lamu_questions_2026.html)
 
 Pytania dzieci z Letniej Akademii Młodych Umysłów 2026, pokolorowane według kategorii tematycznej. Notatnik zawiera również projekcję nowych pytań na istniejącą mapę UMAP (`reducer.transform`).
 
@@ -28,7 +41,7 @@ HTML: [`2025/lamu_questions_2026.html`](2025/lamu_questions_2026.html)
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BERENZ/2026-lamu-ksiezyc/blob/main/2025/ksiezyc_questions_embeddings.ipynb)
 &nbsp;&nbsp;
-[**▶ Otwórz interaktywny wykres**](https://raw.githack.com/BERENZ/2026-lamu-ksiezyc/main/2025/pytania_z_ksiezyca.html)
+[**▶ Otwórz interaktywny wykres**](https://berenz.github.io/2026-lamu-ksiezyc/2025/pytania_z_ksiezyca.html)
 
 ~1050 pytań zadanych przez słuchaczy audycji "Pytania z Księżyca" w Radiu 357. Pytania nie mają przypisanych kategorii — wszystkie punkty mają ten sam kolor, wykres pokazuje wyłącznie strukturę semantyczną (gdzie skupiają się podobne pytania).
 
@@ -41,7 +54,7 @@ HTML: [`2025/pytania_z_ksiezyca.html`](2025/pytania_z_ksiezyca.html)
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BERENZ/2026-lamu-ksiezyc/blob/main/2025/combined_questions_embeddings.ipynb)
 &nbsp;&nbsp;
-[**▶ Otwórz interaktywny wykres**](https://raw.githack.com/BERENZ/2026-lamu-ksiezyc/main/2025/lamu_plus_ksiezyc.html)
+[**▶ Otwórz interaktywny wykres**](https://berenz.github.io/2026-lamu-ksiezyc/2025/lamu_plus_ksiezyc.html)
 
 Oba zbiory pytań razem podane do UMAP — odległości między punktami są porównywalne między źródłami. Kolor oznacza źródło (czerwony = LAMU, granatowy = Pytania z Księżyca). Pokazuje, gdzie tematy się pokrywają, a gdzie różnią.
 
@@ -82,15 +95,14 @@ Argumenty `write_html`:
 - `include_plotlyjs=True` — bundluje pełną bibliotekę Plotly do pliku (~3 MB), dzięki czemu wykres działa offline bez internetu.
 - `full_html=True` — pełny dokument HTML (z `<html>`, `<head>`, `<body>`), gotowy do otwarcia w przeglądarce. Jeśli chcesz tylko fragment do osadzenia, ustaw `False`.
 
-## Dlaczego linki do interaktywnych wykresów używają `raw.githack.com`?
+## Dlaczego GitHub Pages, a nie bezpośredni link do pliku?
 
-GitHub serwuje pliki `.html` z `Content-Type: text/plain` (tekst, nie strona) — więc bezpośredni link do pliku w repo pokazuje surowy kod HTML zamiast wykresu. Serwis [raw.githack.com](https://raw.githack.com/) renderuje te same pliki z `Content-Type: text/html`, czyli normalnie jako stronę z działającym Plotly w środku. Schemat URL:
+GitHub serwuje pliki `.html` z `Content-Type: text/plain` (tekst, nie strona) — więc bezpośredni link do pliku w repo (`github.com/.../file.html`) pokazuje surowy kod HTML zamiast wykresu. GitHub Pages serwuje te same pliki z `Content-Type: text/html`, czyli normalnie jako stronę z działającym Plotly w środku.
 
+Schemat URL po włączeniu Pages:
 ```
-https://raw.githack.com/BERENZ/2026-lamu-ksiezyc/main/2025/<plik>.html
+https://berenz.github.io/2026-lamu-ksiezyc/2025/<plik>.html
 ```
-
-Alternatywa: włączyć **GitHub Pages** dla tego repo (Settings → Pages → branch `main`, folder `/ (root)`) — wtedy te same pliki będą pod `https://berenz.github.io/2026-lamu-ksiezyc/2025/<plik>.html`.
 
 ## Źródła danych
 
