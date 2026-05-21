@@ -1,113 +1,50 @@
-# LAMU 2026 + Pytania z Księżyca — mapy pytań w przestrzeni embeddingów
+# Mapy pytań — LAMU 2025 i Pytania z Księżyca
 
-Trzy notatniki Jupyter (Google Colab, Python) wizualizujące pytania zadawane w dwóch popularyzatorskich projektach naukowych:
+Wizualizacje pytań zadawanych w dwóch popularyzatorskich projektach naukowych w postaci interaktywnych map w przestrzeni embeddingów. Każde pytanie to punkt — punkty bliskie sobie odpowiadają pytaniom o podobnym znaczeniu (nie literalnym, lecz semantycznym).
 
-- **LAMU 2026** — Letnia Akademia Młodych Umysłów (projekt Radia Naukowego), pytania dzieci pogrupowane w kategorie tematyczne (Fizyka, Biologia, Wszechświat, Człowiek, Technologie, Ziemia, Matematyka, Historia, Chemia).
-- **Pytania z Księżyca** — audycja Radia 357, pytania słuchaczy bez przypisanych kategorii.
+- **LAMU 2025** — Letnia Akademia Młodych Umysłów (Radio Naukowe), pytania dzieci pogrupowane w kategorie tematyczne (Fizyka, Biologia, Wszechświat, Człowiek, Technologie, Ziemia, Matematyka, Historia, Chemia).
+- **Pytania z Księżyca** — audycja Radia 357, pytania słuchaczy.
 
-Każde pytanie zamieniane jest na wektor 768 liczb (embedding) przez polski model językowy `sdadas/st-polish-paraphrase-from-distilroberta`, a następnie redukowane do 2D za pomocą UMAP. Wynik to interaktywna mapa, na której punkty bliskie sobie odpowiadają pytaniom o podobnym znaczeniu.
-
----
-
-## ⚙️ Jednorazowa konfiguracja: włącz GitHub Pages
-
-Żeby linki "Otwórz interaktywny wykres" w sekcjach poniżej otwierały od razu wykres (a nie surowy kod HTML), włącz GitHub Pages dla tego repo:
-
-1. Wejdź w **Settings** repo → zakładka **Pages** (lewa kolumna).
-2. **Source**: `Deploy from a branch`
-3. **Branch**: `main`, folder: `/ (root)` → **Save**
-4. Poczekaj ~1 minutę, aż Pages opublikuje stronę.
-
-Bez tego linki będą zwracać 404. Konfiguracja jednorazowa — po włączeniu działa automatycznie po każdym pushu.
+Pod spodem: polski model językowy `sdadas/st-polish-paraphrase-from-distilroberta` zamienia każde pytanie na wektor 768 liczb, UMAP redukuje to do 2D, Plotly rysuje interaktywny wykres.
 
 ---
 
-## Notatniki i interaktywne wykresy
+## Interaktywne wykresy
 
-### 1. LAMU 2026 — mapa pytań dzieci
+### 1. LAMU 2025 — mapa pytań dzieci
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BERENZ/2026-lamu-ksiezyc/blob/main/2025/lamu_questions_embeddings.ipynb)
 &nbsp;&nbsp;
-[**▶ Otwórz interaktywny wykres**](https://berenz.github.io/2026-lamu-ksiezyc/2025/lamu_questions_2026.html)
+[**▶ Otwórz interaktywny wykres**](https://maciejberesewicz.com/2026-lamu-ksiezyc/2025/lamu_questions_2025.html)
 
-Pytania dzieci z Letniej Akademii Młodych Umysłów 2026, pokolorowane według kategorii tematycznej. Notatnik zawiera również projekcję nowych pytań na istniejącą mapę UMAP (`reducer.transform`).
-
-Notatnik: [`2025/lamu_questions_embeddings.ipynb`](2025/lamu_questions_embeddings.ipynb)
-HTML: [`2025/lamu_questions_2026.html`](2025/lamu_questions_2026.html)
-
----
+Pytania dzieci pokolorowane według kategorii tematycznej. Najedź myszką na punkt, by zobaczyć treść pytania; kliknij kategorię w legendzie, by ją ukryć lub wyizolować.
 
 ### 2. Pytania z Księżyca — mapa pytań słuchaczy Radia 357
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BERENZ/2026-lamu-ksiezyc/blob/main/2025/ksiezyc_questions_embeddings.ipynb)
 &nbsp;&nbsp;
-[**▶ Otwórz interaktywny wykres**](https://berenz.github.io/2026-lamu-ksiezyc/2025/pytania_z_ksiezyca.html)
+[**▶ Otwórz interaktywny wykres**](https://maciejberesewicz.com/2026-lamu-ksiezyc/2025/pytania_z_ksiezyca.html)
 
-~1050 pytań zadanych przez słuchaczy audycji "Pytania z Księżyca" w Radiu 357. Pytania nie mają przypisanych kategorii — wszystkie punkty mają ten sam kolor, wykres pokazuje wyłącznie strukturę semantyczną (gdzie skupiają się podobne pytania).
+~1050 pytań słuchaczy. Wszystkie punkty w jednym kolorze — wykres pokazuje strukturę semantyczną (gdzie skupiają się podobne pytania), bez narzuconych kategorii.
 
-Notatnik: [`2025/ksiezyc_questions_embeddings.ipynb`](2025/ksiezyc_questions_embeddings.ipynb)
-HTML: [`2025/pytania_z_ksiezyca.html`](2025/pytania_z_ksiezyca.html)
-
----
-
-### 3. LAMU + Księżyc — wspólna mapa
+### 3. LAMU 2025 + Pytania z Księżyca — wspólna mapa
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BERENZ/2026-lamu-ksiezyc/blob/main/2025/combined_questions_embeddings.ipynb)
 &nbsp;&nbsp;
-[**▶ Otwórz interaktywny wykres**](https://berenz.github.io/2026-lamu-ksiezyc/2025/lamu_plus_ksiezyc.html)
+[**▶ Otwórz interaktywny wykres**](https://maciejberesewicz.com/2026-lamu-ksiezyc/2025/lamu_plus_ksiezyc.html)
 
-Oba zbiory pytań razem podane do UMAP — odległości między punktami są porównywalne między źródłami. Kolor oznacza źródło (czerwony = LAMU, granatowy = Pytania z Księżyca). Pokazuje, gdzie tematy się pokrywają, a gdzie różnią.
-
-Notatnik: [`2025/combined_questions_embeddings.ipynb`](2025/combined_questions_embeddings.ipynb)
-HTML: [`2025/lamu_plus_ksiezyc.html`](2025/lamu_plus_ksiezyc.html)
+Oba zbiory razem podane do UMAP — odległości między punktami są porównywalne między źródłami. Kolor oznacza źródło (czerwony = LAMU, granatowy = Pytania z Księżyca). Widać, gdzie tematy się pokrywają, a gdzie różnią.
 
 ---
 
-## Jak uruchomić w Google Colab
+## Uruchomienie notatników w Google Colab
 
-1. Kliknij badge **"Open In Colab"** przy wybranym notatniku powyżej.
-2. W menu Colab: **Środowisko uruchomieniowe → Zmień typ środowiska → GPU (T4)** (opcjonalnie — bez GPU też zadziała, tylko wolniej).
-3. **Środowisko uruchomieniowe → Uruchom wszystko** (`Ctrl+F9`).
-4. Notatnik sam pobierze dane, zainstaluje biblioteki i wygeneruje wykresy.
-5. Na koniec automatycznie pobierze się plik HTML — wystarczy go wrzucić do katalogu `2025/` w repo, żeby zaktualizować interaktywny wykres widoczny w README.
-
-Konto Google jest wymagane. Nie trzeba nic instalować lokalnie.
-
-## Kod do zapisu interaktywnego HTML
-
-Każdy z notatników kończy się komórką, która eksportuje wykres Plotly do samodzielnego pliku HTML (otwiera się w dowolnej przeglądarce, działa offline, zachowuje pełną interaktywność — hover, zoom, ukrywanie kategorii):
-
-```python
-HTML_PATH = "lamu_questions_2026.html"   # albo pytania_z_ksiezyca.html / lamu_plus_ksiezyc.html
-
-fig.write_html(HTML_PATH, include_plotlyjs=True, full_html=True)
-print(f"Zapisano interaktywny wykres: {HTML_PATH}")
-
-# Automatyczne pobranie pliku w Colabie:
-try:
-    from google.colab import files
-    files.download(HTML_PATH)
-except ImportError:
-    print(f"Otworz plik {HTML_PATH} w przegladarce, aby zobaczyc wykres offline.")
-```
-
-Argumenty `write_html`:
-- `include_plotlyjs=True` — bundluje pełną bibliotekę Plotly do pliku (~3 MB), dzięki czemu wykres działa offline bez internetu.
-- `full_html=True` — pełny dokument HTML (z `<html>`, `<head>`, `<body>`), gotowy do otwarcia w przeglądarce. Jeśli chcesz tylko fragment do osadzenia, ustaw `False`.
-
-## Dlaczego GitHub Pages, a nie bezpośredni link do pliku?
-
-GitHub serwuje pliki `.html` z `Content-Type: text/plain` (tekst, nie strona) — więc bezpośredni link do pliku w repo (`github.com/.../file.html`) pokazuje surowy kod HTML zamiast wykresu. GitHub Pages serwuje te same pliki z `Content-Type: text/html`, czyli normalnie jako stronę z działającym Plotly w środku.
-
-Schemat URL po włączeniu Pages:
-```
-https://berenz.github.io/2026-lamu-ksiezyc/2025/<plik>.html
-```
+Wystarczy kliknąć badge **"Open In Colab"** przy wybranym notatniku, opcjonalnie ustawić GPU (**Środowisko uruchomieniowe → Zmień typ środowiska → T4**) i uruchomić wszystkie komórki (`Ctrl+F9`). Notatnik sam pobierze dane, zakoduje pytania i wygeneruje wykresy. Konto Google jest wymagane. Nie trzeba nic instalować lokalnie.
 
 ## Źródła danych
 
-- LAMU 2026: [`LAMU-zadane-pytania-2026.pdf`](https://radionaukowe.pl/wp-content/uploads/2026/03/LAMU-zadane-pytania-2026.pdf) (strona Radia Naukowego).
-- Pytania z Księżyca: [GitHub gist](https://gist.githubusercontent.com/BERENZ/a2f58c81f5983e8f6b9e5191be4bad8a/raw/0fee1aec9d5ec6769ebe6e20bdeb0600ee0be692/pytania-z-ksiezyca.txt).
+- LAMU 2025: PDF z pytaniami publikowany przez [Radio Naukowe](https://radionaukowe.pl/).
+- Pytania z Księżyca: [zbiór pytań w formacie tekstowym](https://gist.githubusercontent.com/BERENZ/a2f58c81f5983e8f6b9e5191be4bad8a/raw/0fee1aec9d5ec6769ebe6e20bdeb0600ee0be692/pytania-z-ksiezyca.txt).
 
 ## Wykorzystane narzędzia
 
