@@ -39,7 +39,13 @@ Oba zbiory razem podane do UMAP — odległości między punktami są porównywa
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BERENZ/2026-lamu-ksiezyc/blob/main/2025/compare_embeddings_poldense.ipynb)
 
-Te same pytania LAMU zakodowane dwoma modelami: dotychczasowym `sdadas/st-polish-paraphrase-from-distilroberta` (768 wymiarów) oraz nowszym [`OPI-PIB/PolDense-1B`](https://huggingface.co/OPI-PIB/PolDense-1B) (ModernBERT, 1024 wymiary, z kolekcji PolDense/EuroDense). Notatnik pokazuje dwie mapy UMAP obok siebie oraz dwie miary liczbowe (silhouette względem kategorii i pokrycie najbliższych sąsiadów), które ujmują, na ile nowy model inaczej organizuje pytania. Na końcu projektuje nowe pytania **LAMU 2026** na wytrenowaną mapę. **Uwaga:** PolDense-1B ma ~1 mld parametrów — zalecane środowisko GPU (T4).
+Te same pytania LAMU zakodowane dwoma modelami: dotychczasowym `sdadas/st-polish-paraphrase-from-distilroberta` (768 wymiarów) oraz nowszym [`OPI-PIB/PolDense-1B`](https://huggingface.co/OPI-PIB/PolDense-1B) (ModernBERT, z kolekcji PolDense/EuroDense). Notatnik pokazuje dwie mapy UMAP obok siebie oraz dwie miary liczbowe (silhouette względem kategorii i pokrycie najbliższych sąsiadów), które ujmują, na ile nowy model inaczej organizuje pytania. Na końcu projektuje nowe pytania **LAMU 2026** na wytrenowaną mapę. **Uwaga:** PolDense-1B ma ~1 mld parametrów — zalecane środowisko GPU (T4).
+
+### 5. LAMU 2026 — nowe pytania na mapie wytrenowanej na 2025
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BERENZ/2026-lamu-ksiezyc/blob/main/2025/lamu_2026_questions.ipynb)
+
+Notatnik roboczy do LAMU 2026: koduje pytania z 2025 modelem [`OPI-PIB/PolDense-1B`](https://huggingface.co/OPI-PIB/PolDense-1B), **trenuje UMAP na zbiorze 2025**, a następnie **projektuje nowe pytania 2026 na tę samą mapę** (`reducer.transform()`). Nowe pytania dodaje się w jednym miejscu (słownik `new_questions_2026`) — punkty 2026 pojawiają się jako gwiazdki pokolorowane wg sekcji planu, na tle przygaszonych pytań 2025. Zalecane GPU (T4).
 
 ---
 
