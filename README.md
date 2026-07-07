@@ -35,6 +35,12 @@ Pytania dzieci pokolorowane według kategorii tematycznej. Najedź myszką na pu
 
 Oba zbiory razem podane do UMAP — odległości między punktami są porównywalne między źródłami. Kolor oznacza źródło (czerwony = LAMU, granatowy = Pytania z Księżyca). Widać, gdzie tematy się pokrywają, a gdzie różnią.
 
+### 4. Porównanie modeli embeddingów — stary model vs PolDense-1B
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BERENZ/2026-lamu-ksiezyc/blob/main/2025/compare_embeddings_poldense.ipynb)
+
+Te same pytania LAMU zakodowane dwoma modelami: dotychczasowym `sdadas/st-polish-paraphrase-from-distilroberta` (768 wymiarów) oraz nowszym [`OPI-PIB/PolDense-1B`](https://huggingface.co/OPI-PIB/PolDense-1B) (ModernBERT, 1024 wymiary, z kolekcji PolDense/EuroDense). Notatnik pokazuje dwie mapy UMAP obok siebie oraz dwie miary liczbowe (silhouette względem kategorii i pokrycie najbliższych sąsiadów), które ujmują, na ile nowy model inaczej organizuje pytania. Na końcu projektuje nowe pytania **LAMU 2026** na wytrenowaną mapę. **Uwaga:** PolDense-1B ma ~1 mld parametrów — zalecane środowisko GPU (T4).
+
 ---
 
 ## Uruchomienie notatników w Google Colab
@@ -48,7 +54,7 @@ Wystarczy kliknąć badge **"Open In Colab"** przy wybranym notatniku, opcjonaln
 
 ## Wykorzystane narzędzia
 
-- [sentence-transformers](https://www.sbert.net/) z modelem [`sdadas/st-polish-paraphrase-from-distilroberta`](https://huggingface.co/sdadas/st-polish-paraphrase-from-distilroberta)
+- [sentence-transformers](https://www.sbert.net/) z modelem [`sdadas/st-polish-paraphrase-from-distilroberta`](https://huggingface.co/sdadas/st-polish-paraphrase-from-distilroberta); w notatniku porównawczym także [`OPI-PIB/PolDense-1B`](https://huggingface.co/OPI-PIB/PolDense-1B)
 - [UMAP](https://umap-learn.readthedocs.io/) — redukcja wymiarów
 - [Plotly](https://plotly.com/python/) — interaktywne wykresy
 - [PyMuPDF](https://pymupdf.readthedocs.io/) — parsowanie PDF
