@@ -38,6 +38,8 @@ Oba zbiory razem podane do UMAP — odległości między punktami są porównywa
 ### 4. Porównanie modeli embeddingów — stary model vs PolDense-1B
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BERENZ/2026-lamu-ksiezyc/blob/main/2025/compare_embeddings_poldense.ipynb)
+&nbsp;&nbsp;
+[**▶ Otwórz interaktywny wykres (projekcja LAMU 2026)**](https://maciejberesewicz.com/2026-lamu-ksiezyc/2025/lamu2026_projection_compare.html)
 
 Te same pytania LAMU zakodowane dwoma modelami: dotychczasowym `sdadas/st-polish-paraphrase-from-distilroberta` (768 wymiarów) oraz nowszym [`OPI-PIB/PolDense-1B`](https://huggingface.co/OPI-PIB/PolDense-1B) (ModernBERT, z kolekcji PolDense/EuroDense). Notatnik pokazuje dwie mapy UMAP obok siebie oraz dwie miary liczbowe (silhouette względem kategorii i pokrycie najbliższych sąsiadów), które ujmują, na ile nowy model inaczej organizuje pytania. Na końcu projektuje nowe pytania **LAMU 2026** na wytrenowaną mapę. **Uwaga:** PolDense-1B ma ~1 mld parametrów — zalecane środowisko GPU (T4).
 
